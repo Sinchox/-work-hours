@@ -12,17 +12,20 @@ main{max-width:520px;margin:auto;padding:18px 16px 40px}.card{background:white;b
 h1{font-size:28px;margin:4px 0}.muted{color:#6b7280}.big{font-size:34px;font-weight:800;margin:8px 0 2px}
 button{border:0;border-radius:14px;padding:15px 18px;font-size:17px;font-weight:700;width:100%;margin-top:10px}
 .start{background:#16a34a;color:white}.stop{background:#dc2626;color:white}.secondary{background:#e5e7eb;color:#111827}
-.row{display:flex;justify-content:space-between;gap:12px;align-items:center}.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.row{display:flex;justify-content:space-between;gap:12px;align-items:center}
 .stat{background:#f9fafb;border-radius:14px;padding:12px}.stat b{font-size:20px;display:block}.days{max-height:420px;overflow:auto}
-.day{padding:12px 0;border-bottom:1px solid #eee}.day:last-child{border:0}.ok{color:#15803d}.off{color:#6b7280}.warn{color:#b45309}
+.day{padding:12px 0;border-bottom:1px solid #eee}.day:last-child{border:0}
 input{font-size:17px;padding:12px;border:1px solid #d1d5db;border-radius:12px;width:100%}
-small{color:#6b7280}.hidden{display:none}
+small{color:#6b7280}.status{font-size:13px}.ok{color:#15803d}.warn{color:#b45309}
 </style>
 </head>
 <body>
 <main>
 <div class="card">
-  <div class="row"><div><h1>Work Hours</h1><div class="muted" id="monthLabel"></div></div><div>☁️ <span id="syncState">Local</span></div></div>
+  <div class="row">
+    <div><h1>Work Hours</h1><div class="muted" id="monthLabel"></div></div>
+    <div>● <span id="syncState">Offline kayıt</span></div>
+  </div>
 </div>
 
 <div class="card">
@@ -53,10 +56,9 @@ small{color:#6b7280}.hidden{display:none}
 </div>
 
 <div class="card">
-  <b>Google Drive</b>
-  <p class="muted">Yerel kayıtlar güvenli şekilde tutulur. Google Drive yedeklemesi için Apps Script bağlantısını bir kez kuracağız.</p>
-  <button id="backupBtn" class="secondary">☁️ Google Drive'a Yedekle</button>
-  <small id="backupInfo"></small>
+  <b>Veri güvenliği</b>
+  <p class="muted">Kayıtlar artık IndexedDB'de tutuluyor. Uygulama internet olmadan da çalışabilir. Google Drive yedekleme sonraki aşamada eklenecek.</p>
+  <div class="status" id="dbStatus"></div>
 </div>
 </main>
 <script src="app.js"></script>
